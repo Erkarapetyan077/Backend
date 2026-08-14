@@ -1,0 +1,6 @@
+hello world this is a test
+javascript node js filesystem
+streaming file word counter
+hello again this is another test
+large files should be processed chunk by chunk
+words are separated by spaces tabs and new lines
