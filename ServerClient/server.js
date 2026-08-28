@@ -13,7 +13,7 @@ const server = net.createServer((socket) => {
     console.log(`${socket.username || "Unknown user"} error`);
   });
 
-  socket.on("close", () => {
+  socket.on("close", () =>  {
     if (!socket.username) {
       return;
     }
