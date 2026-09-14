@@ -1,0 +1,23 @@
+[
+  {
+    "id": 2,
+    "name": "Wireless Mouse",
+    "price": 25,
+    "category": "Electronics",
+    "stock": 40
+  },
+  {
+    "id": 3,
+    "name": "Cotton T-Shirt",
+    "price": 18,
+    "category": "Clothing",
+    "stock": 65
+  },
+  {
+    "id": 4,
+    "name": "Coffee Mug",
+    "price": 12,
+    "category": "Home",
+    "stock": 30
+  }
+]
