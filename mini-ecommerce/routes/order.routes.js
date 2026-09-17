@@ -11,12 +11,22 @@ const ordersFile = path.join(__dirname, "../data/orders.json");
 router.post("/", authenticate, async (req, res) => {
   const items = req.body.items;
   const data = await fs.readFile(productsFile, "utf-8");
-  const products = JSON.parse(data);
+  const products = JSON.parse(data || "[]");
   let total = 0;
 
   const element = items.map((item) => {
     return products.find((product) => product.id === item.productId);
   });
+
+  for (const item of items) {
+    const product = products.find((product) => product.id === item.productId);
+
+    if (!product) {
+      return res.status(400).json({
+        message: `Product ${item.productId} not found`,
+      });
+    }
+  }
 
   if (
     items.find((item, index) => {
@@ -65,7 +75,7 @@ router.post("/", authenticate, async (req, res) => {
 // client order
 router.get("/", authenticate, async (req, res) => {
   const data = await fs.readFile(ordersFile, "utf-8");
-  const orders = JSON.parse(data);
+  const orders = JSON.parse(data || "[]");
 
   const ordersById = orders.filter((order) => order.userId === req.user.id);
 
@@ -75,7 +85,7 @@ router.get("/", authenticate, async (req, res) => {
 // client order by id
 router.get("/:id", authenticate, async (req, res) => {
   const data = await fs.readFile(ordersFile, "utf-8");
-  const orders = JSON.parse(data);
+  const orders = JSON.parse(data || "[]");
 
   const order = orders.find((order) => order.id === +req.params.id);
 

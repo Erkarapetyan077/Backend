@@ -4,7 +4,7 @@
     "name": "Wireless Mouse",
     "price": 25,
     "category": "Electronics",
-    "stock": 40
+    "stock": 38
   },
   {
     "id": 3,
@@ -19,5 +19,6 @@
     "price": 12,
     "category": "Home",
     "stock": 30
-  }
+  },
+  { "username": "erik", "password": "123456" }
 ]

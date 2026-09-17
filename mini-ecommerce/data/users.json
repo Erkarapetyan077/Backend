@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": 1,
+    "username": "erik",
+    "passwordHash": "$2b$10$GytL.55zWeVrxtkxjmSvqOiOZValtTvPo6AD9ZZjXnA47bJIntB3m",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "username": "testuser",
+    "passwordHash": "$2b$10$fj9Yb1iBjVBAUVyGNJSrwuOPcEhdSEThLyI3tvu7gDfvRtVEHMXLW",
+    "role": "customer"
+  }
+]

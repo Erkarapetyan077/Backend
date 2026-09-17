@@ -34,9 +34,22 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", authenticate, authorize("admin"), async (req, res) => {
-  const newProduct = req.body;
+  const { name, price, category, stock } = req.body;
+  if (!name || price === undefined) {
+    return res.status(400).json({
+      message: "name and price are required",
+    });
+  }
   const data = await fs.readFile(productsFile, "utf-8");
   const products = JSON.parse(data);
+  const newId = Math.max(...products.map((product) => product.id), 0) + 1;
+  const newProduct = {
+    id: newId,
+    name,
+    price,
+    category,
+    stock,
+  };
   const updatedProducts = [...products, newProduct];
 
   await fs.writeFile(productsFile, JSON.stringify(updatedProducts));

@@ -11,7 +11,7 @@ function authenticate(req, res, next) {
   const token = authHeader.split(" ");
 
   try {
-    const user = jwt.verify(token[1], "secret_key");
+    const user = jwt.verify(token[1], process.env.SECRET_KEY);
     req.user = user;
     next();
   } catch (error) {

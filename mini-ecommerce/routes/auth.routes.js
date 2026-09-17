@@ -67,7 +67,7 @@ router.post("/login", async (req, res) => {
       username: user.username,
       role: user.role,
     },
-    "secret_key",
+    process.env.SECRET_KEY,
     {
       expiresIn: "1h",
     }
